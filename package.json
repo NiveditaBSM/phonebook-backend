@@ -1,0 +1,27 @@
+{
+  "name": "phonebookbackend",
+  "version": "1.0.0",
+  "description": "node and Express backend for phonebook",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev" : "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NiveditaBSM/phonebook-backend.git"
+  },
+  "author": "Nivedita",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NiveditaBSM/phonebook-backend/issues"
+  },
+  "homepage": "https://github.com/NiveditaBSM/phonebook-backend#readme",
+  "dependencies": {
+    "express": "^4.21.1" 
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
