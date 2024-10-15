@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "build:ui": "cd ../phonebookFrontend && npm run build && cp -r dist ~/Dev/DevFullstack/DevPractice/part3/phonebook/phonebookBackend/",
+    "deploy": "git add . && git commit -m 'complete build' && git push",
+    "deploy:full": "npm run build:ui && git add . && git commit -m 'forDeploy after ui build' && git push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
