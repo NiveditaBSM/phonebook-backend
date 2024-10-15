@@ -128,5 +128,5 @@ app.post('/api/persons', (request, response) => {
 app.use(unknownEndpoint)
 
 //  Initiating application-------------------------------------------
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log(`Server started listening on port: ${PORT}`))
