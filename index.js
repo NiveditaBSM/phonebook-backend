@@ -22,8 +22,10 @@ const unknownEndpoint = (request, response) => {
 }
 
 const errorHandling = (error, request, response, next) => {
-    if (error.name == 'CastError') {
+    if (error.name === 'CastError') {
         return response.status(400).send({ error: 'malformatted id' })
+    } else if (error.name === 'ValidationError') {
+        return response.status(400).json({ error: error.message })
     }
 }
 
@@ -70,12 +72,9 @@ app.get('/api/persons/:id', (request, response, next) => {
 })
 
 app.put('/api/persons/:id', (request, response, next) => {
-    const person = {
-        name: request.body.name,
-        number: request.body.number
-    }
+    const { name, number } = request.body
 
-    Person.findByIdAndUpdate(request.params.id, person, { new: true })
+    Person.findByIdAndUpdate(request.params.id, { name, number }, { new: true, runValidators: true, context: 'query' })
         .then(updatedPerson => {
             if (updatedPerson) {
                 response.json(updatedPerson)
